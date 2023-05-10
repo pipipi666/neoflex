@@ -1,6 +1,10 @@
-# Getting Started with Create React App
+# Neoflex
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+## Deploy
+
+https://stellar-biscuit-9ebfea.netlify.app/
 
 ## Available Scripts
 
