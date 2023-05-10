@@ -1,6 +1,7 @@
 .btn {
   border: 0;
   background: transparent;
+  font-family: inherit;
   cursor: pointer;
 }
 
@@ -10,6 +11,7 @@
 }
 
 .size__m {
+  font-size: inherit;
   font-weight: 600;
 }
 

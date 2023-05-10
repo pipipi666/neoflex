@@ -13,11 +13,13 @@ function App() {
     <BrowserRouter>
       <div className={styles.layout}>
         <Header />
-        <Routes>
-          <Route path={ROUTES.HOME} element={<MainPage />} />
-          <Route path={ROUTES.CART} element={<CartPage />} />
-          <Route path="*" element={<NotFoundPage />} />
-        </Routes>
+        <div className={styles.container}>
+          <Routes>
+            <Route path={ROUTES.HOME} element={<MainPage />} />
+            <Route path={ROUTES.CART} element={<CartPage />} />
+            <Route path="*" element={<NotFoundPage />} />
+          </Routes>
+        </div>
         <Footer />
       </div>
     </BrowserRouter>
