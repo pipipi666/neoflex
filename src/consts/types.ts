@@ -7,3 +7,5 @@ export type TData = {
   rate: number;
   category: string;
 };
+
+export type TChangeCart = (id: string) => void;

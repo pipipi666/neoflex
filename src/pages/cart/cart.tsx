@@ -1,14 +1,16 @@
 import { CardCart } from "components/UI/card-cart/card-cart";
 import styles from "./cart.module.scss";
 import { headphones } from "consts/data";
+import { TChangeCart } from "consts/types";
+import { useMemo } from "react";
 
 type TCartPageProps = {
   cart: {
     [k: string]: number;
   };
-  onAddClick: (id: string) => void;
-  onRemoveClick: (id: string) => void;
-  onClearClick: (id: string) => void;
+  onAddClick: TChangeCart;
+  onRemoveClick: TChangeCart;
+  onClearClick: TChangeCart;
 };
 
 export const CartPage = ({
@@ -17,7 +19,7 @@ export const CartPage = ({
   onRemoveClick,
   onClearClick,
 }: TCartPageProps) => {
-  const items = headphones.filter((h) => cart[h.id]);
+  const items = useMemo(() => headphones.filter((h) => cart[h.id]), [cart]);
   const total = items.reduce(
     (acc, curr) => acc + curr.price * cart[curr.id],
     0

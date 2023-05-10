@@ -1,15 +1,14 @@
-import { TData } from "consts/types";
+import { TChangeCart, TData } from "consts/types";
 import styles from "./card.module.scss";
 import { Star } from "../icons/star";
 import { Button } from "../button/button";
 
-export const Card = ({
-  item,
-  onAddClick,
-}: {
+type TCardProps = {
   item: TData;
-  onAddClick: (id: string) => void;
-}) => {
+  onAddClick: TChangeCart;
+};
+
+export const Card = ({ item, onAddClick }: TCardProps) => {
   return (
     <div className={styles.card}>
       <div className={styles.img__wrapper}>

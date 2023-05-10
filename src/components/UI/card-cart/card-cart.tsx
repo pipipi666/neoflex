@@ -1,4 +1,4 @@
-import { TData } from "consts/types";
+import { TChangeCart, TData } from "consts/types";
 import styles from "./card-cart.module.scss";
 import { Trash } from "../icons/trash";
 import { Minus } from "../icons/minus";
@@ -9,9 +9,9 @@ type TCardCartProps = {
   cart: {
     [k: string]: number;
   };
-  onAddClick: (id: string) => void;
-  onRemoveClick: (id: string) => void;
-  onClearClick: (id: string) => void;
+  onAddClick: TChangeCart;
+  onRemoveClick: TChangeCart;
+  onClearClick: TChangeCart;
 };
 
 export const CardCart = ({

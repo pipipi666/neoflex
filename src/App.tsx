@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useCallback, useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { ROUTES } from "consts/routes";
 import { Header } from "components/header/header";
@@ -16,20 +16,29 @@ function App() {
   const [cart, setCart] = useState<TCart>({});
   const [count, setCount] = useState(0);
 
-  const onAddClick = (id: string) => {
-    setCart({ ...cart, [id]: (cart[id] || 0) + 1 });
-    setCount((prev) => prev + 1);
-  };
+  const onAddClick = useCallback(
+    (id: string) => {
+      setCart({ ...cart, [id]: (cart[id] || 0) + 1 });
+      setCount((prev) => prev + 1);
+    },
+    [cart]
+  );
 
-  const onRemoveClick = (id: string) => {
-    setCart({ ...cart, [id]: cart[id] - 1 });
-    setCount((prev) => prev - 1);
-  };
+  const onRemoveClick = useCallback(
+    (id: string) => {
+      setCart({ ...cart, [id]: cart[id] - 1 });
+      setCount((prev) => prev - 1);
+    },
+    [cart]
+  );
 
-  const onClearClick = (id: string) => {
-    setCount((prev) => prev - cart[id]);
-    setCart({ ...cart, [id]: 0 });
-  };
+  const onClearClick = useCallback(
+    (id: string) => {
+      setCount((prev) => prev - cart[id]);
+      setCart({ ...cart, [id]: 0 });
+    },
+    [cart]
+  );
 
   return (
     <BrowserRouter>
