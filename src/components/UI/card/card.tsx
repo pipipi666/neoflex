@@ -3,7 +3,13 @@ import styles from "./card.module.scss";
 import { Star } from "../icons/star";
 import { Button } from "../button/button";
 
-export const Card = ({ item }: { item: TData }) => {
+export const Card = ({
+  item,
+  onAddClick,
+}: {
+  item: TData;
+  onAddClick: (id: string) => void;
+}) => {
   return (
     <div className={styles.card}>
       <div className={styles.img__wrapper}>
@@ -24,7 +30,7 @@ export const Card = ({ item }: { item: TData }) => {
             <Star />
             <span>{item.rate}</span>
           </div>
-          <Button>Купить</Button>
+          <Button onAddClick={() => onAddClick(item.id)}>Купить</Button>
         </div>
       </div>
     </div>

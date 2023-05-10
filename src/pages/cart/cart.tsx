@@ -2,25 +2,56 @@ import { CardCart } from "components/UI/card-cart/card-cart";
 import styles from "./cart.module.scss";
 import { headphones } from "consts/data";
 
-export const CartPage = () => {
+type TCartPageProps = {
+  cart: {
+    [k: string]: number;
+  };
+  onAddClick: (id: string) => void;
+  onRemoveClick: (id: string) => void;
+  onClearClick: (id: string) => void;
+};
+
+export const CartPage = ({
+  cart,
+  onAddClick,
+  onRemoveClick,
+  onClearClick,
+}: TCartPageProps) => {
+  const items = headphones.filter((h) => cart[h.id]);
+  const total = items.reduce(
+    (acc, curr) => acc + curr.price * cart[curr.id],
+    0
+  );
+
   return (
     <main>
       <h3 className={styles.h3}>Корзина</h3>
       <div className={styles.content}>
-        <ul className={styles.ul}>
-          {headphones
-            .filter((h) => h.category === "Наушники")
-            .map((h) => (
-              <CardCart key={h.id} item={h} />
-            ))}
-        </ul>
-        <div className={styles.total__wrapper}>
-          <div className={styles.total}>
-            <span>ИТОГО</span>
-            <span>₽ 2 927</span>
-          </div>
-          <button className={styles.order}>Перейти к оформлению</button>
-        </div>
+        {Object.keys(cart).length ? (
+          <>
+            <ul className={styles.ul}>
+              {items.map((h) => (
+                <CardCart
+                  key={h.id}
+                  item={h}
+                  cart={cart}
+                  onAddClick={onAddClick}
+                  onRemoveClick={onRemoveClick}
+                  onClearClick={onClearClick}
+                />
+              ))}
+            </ul>
+            <div className={styles.total__wrapper}>
+              <div className={styles.total}>
+                <span>ИТОГО</span>
+                <span>₽ {total}</span>
+              </div>
+              <button className={styles.order}>Перейти к оформлению</button>
+            </div>
+          </>
+        ) : (
+          <h3 className={styles.h3}>Ваша корзина пуста</h3>
+        )}
       </div>
     </main>
   );

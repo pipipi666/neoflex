@@ -4,7 +4,7 @@ import { ROUTES } from "consts/routes";
 import { Favorite } from "components/UI/icons/favorite";
 import { Cart } from "components/UI/icons/cart";
 
-export const Header = () => {
+export const Header = ({ count }: { count: number }) => {
   return (
     <header className={styles.header}>
       <Link className={styles.logo} to={ROUTES.HOME}>
@@ -19,7 +19,7 @@ export const Header = () => {
             </Link>
           </li>
           <li className={styles.li}>
-            <div className={styles.counter}>1</div>
+            <div className={styles.counter}>{count}</div>
             <Link className={styles.link} to={ROUTES.CART}>
               <Cart />
             </Link>

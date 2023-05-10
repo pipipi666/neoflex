@@ -4,7 +4,23 @@ import { Trash } from "../icons/trash";
 import { Minus } from "../icons/minus";
 import { Plus } from "../icons/plus";
 
-export const CardCart = ({ item }: { item: TData }) => {
+type TCardCartProps = {
+  item: TData;
+  cart: {
+    [k: string]: number;
+  };
+  onAddClick: (id: string) => void;
+  onRemoveClick: (id: string) => void;
+  onClearClick: (id: string) => void;
+};
+
+export const CardCart = ({
+  item,
+  cart,
+  onAddClick,
+  onRemoveClick,
+  onClearClick,
+}: TCardCartProps) => {
   return (
     <div className={styles.card}>
       <div className={styles.top}>
@@ -15,21 +31,21 @@ export const CardCart = ({ item }: { item: TData }) => {
           <span>{item.title}</span>
           <span className={styles.price}>{item.price} ₽</span>
         </div>
-        <button className={styles.btn}>
+        <button className={styles.btn} onClick={() => onClearClick(item.id)}>
           <Trash />
         </button>
       </div>
       <div className={styles.bottom}>
         <div className={styles.count}>
-          <button className={styles.btn}>
+          <button className={styles.btn} onClick={() => onRemoveClick(item.id)}>
             <Minus />
           </button>
-          1
-          <button className={styles.btn}>
+          {cart[item.id]}
+          <button className={styles.btn} onClick={() => onAddClick(item.id)}>
             <Plus />
           </button>
         </div>
-        <span>{item.price} ₽</span>
+        <span>{item.price * cart[item.id]} ₽</span>
       </div>
     </div>
   );
