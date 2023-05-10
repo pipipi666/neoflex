@@ -1,0 +1,40 @@
+:root {
+  --accent-main-color: #ffa542;
+  --accent-secondary-color: #ffce7f;
+  --text-logo-color: #101010;
+  --text-main-color: #000000;
+  --text-title-color: #1c1c27;
+  --text-secondary-color: #838383;
+  --bg-layout-color: #eaeaea;
+  --bg-element-color: #ffffff;
+
+  --font-size-s: 13px;
+  --font-size-m: 15px;
+
+  --corner-radius: 30px;
+}
+
+body {
+  margin: 0;
+  font-family: Monsterrat, Arial, Helvetica, sans-serif;
+  font-size: 17px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+li {
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+button {
+  border: 0;
+  cursor: pointer;
+}
