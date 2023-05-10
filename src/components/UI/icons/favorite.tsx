@@ -1,4 +1,4 @@
-export const Like = () => {
+export const Favorite = () => {
   return (
     <svg
       width="23"

@@ -1,0 +1,46 @@
+.header {
+  height: 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .logo {
+    font-size: 25px;
+    font-weight: 700;
+  }
+
+  nav {
+    height: 100%;
+
+    .ul {
+      height: 100%;
+      display: flex;
+
+      .li {
+        position: relative;
+
+        .counter {
+          position: absolute;
+          top: 12px;
+          right: 10px;
+          width: 18px;
+          height: 18px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          color: var(--bg-element-color);
+          background-color: var(--accent-main-color);
+          border-radius: 50%;
+          font-weight: 500;
+        }
+
+        .link {
+          display: flex;
+          align-items: center;
+          height: 100%;
+          padding: 0 20px;
+        }
+      }
+    }
+  }
+}

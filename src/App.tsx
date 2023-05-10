@@ -6,17 +6,20 @@ import { Footer } from "components/footer/footer";
 import { MainPage } from "pages/main/main";
 import { CartPage } from "pages/cart/cart";
 import { NotFoundPage } from "pages/not-found/not-found";
+import styles from "./App.module.scss";
 
 function App() {
   return (
     <BrowserRouter>
-      <Header />
-      <Routes>
-        <Route path={ROUTES.HOME} element={<MainPage />} />
-        <Route path={ROUTES.CART} element={<CartPage />} />
-        <Route path="*" element={<NotFoundPage />} />
-      </Routes>
-      <Footer />
+      <div className={styles.layout}>
+        <Header />
+        <Routes>
+          <Route path={ROUTES.HOME} element={<MainPage />} />
+          <Route path={ROUTES.CART} element={<CartPage />} />
+          <Route path="*" element={<NotFoundPage />} />
+        </Routes>
+        <Footer />
+      </div>
     </BrowserRouter>
   );
 }
