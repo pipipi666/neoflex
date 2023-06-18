@@ -1,0 +1,56 @@
+.card {
+  width: 350px;
+  height: 407px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  background-color: var(--bg-element-color);
+  border-radius: var(--corner-radius);
+  font-weight: 600;
+
+  .img__wrapper {
+    display: flex;
+    align-items: center;
+    flex: 1;
+    .img {
+      width: 238px;
+    }
+  }
+
+  .info {
+    width: 100%;
+    height: 74px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    .title {
+      display: flex;
+      justify-content: space-between;
+
+      .price {
+        color: var(--accent-main-color);
+      }
+    }
+
+    .price__old {
+      color: var(--accent-secondary-color);
+      text-decoration: line-through;
+      font-size: var(--font-size-s);
+      text-align: end;
+    }
+
+    .buy {
+      display: flex;
+      justify-content: space-between;
+
+      .rate {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        color: var(--text-secondary-color);
+      }
+    }
+  }
+}

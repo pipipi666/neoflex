@@ -1,0 +1,45 @@
+:root {
+  --accent-main-color: #ffa542;
+  --accent-secondary-color: #ffce7f;
+  --text-logo-color: #101010;
+  --text-main-color: #000000;
+  --text-title-color: #1c1c27;
+  --text-secondary-color: #838383;
+  --bg-layout-color: #eaeaea;
+  --bg-element-color: #ffffff;
+
+  --font-size-s: 13px;
+  --font-size-m: 15px;
+
+  --corner-radius: 30px;
+}
+
+body {
+  margin: 0;
+  font-family: Montserrat, Arial, sans-serif;
+  font-size: 17px;
+  background-color: var(--bg-layout-color);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+li {
+  list-style-type: none;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  border: 0;
+  font-family: inherit;
+  font-size: inherit;
+  background: transparent;
+  cursor: pointer;
+}
